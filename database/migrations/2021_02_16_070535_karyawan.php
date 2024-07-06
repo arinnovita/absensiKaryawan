@@ -19,7 +19,7 @@ class Karyawan extends Migration
             $table->string('jabatan')->nullable();
             $table->string('alamat');
             $table->string('no_tlp');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->timestamps();
         });
     }
