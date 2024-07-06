@@ -97,7 +97,7 @@
 														<span aria-hidden="true">&times;</span>
 													</button>
 												</div>
-												<form method="POST" enctype="multipart/form-data" action="/absen/store">
+												<form method="POST" enctype="multipart/form-data" action="{{ route('absen.store') }}">
 												@csrf
 												<div class="modal-body">
 													<div class="form-group">

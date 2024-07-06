@@ -7,7 +7,7 @@
 	<link rel="icon" href="/assets/img/icon.ico" type="image/x-icon"/>
 	
 	<!-- Fonts and icons -->
-	<script src="/assets/js/plugin/webfont/webfont.min.js"></script>
+	<script src="{{ asset('/assets/js/plugin/webfont/webfont.min.js') }}"></script>
 	<script>
 		WebFont.load({
 			google: {"families":["Open+Sans:300,400,600,700"]},
@@ -19,10 +19,10 @@
 	</script>
 
 	<!-- CSS Files -->
-	<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/assets/css/azzara.min.css">
+	<link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('/assets/css/azzara.min.css') }}">
 	<!-- CSS Just for demo purpose, don't include it in your project -->
-	<link rel="stylesheet" href="/assets/css/demo.css">
+	<link rel="stylesheet" href="{{ asset('/assets/css/demo.css') }}">
 </head>
 <body>
 	<div class="wrapper">
@@ -96,19 +96,19 @@
 							<div class="collapse" id="base">
 								<ul class="nav nav-collapse">
 									<li>
-										<a href="/karyawan">
+										<a href="{{ route('karyawan.index') }}">
 											<span class="sub-item">Karyawan</span>
 										</a>
 									</li>
 
 									<li>
-										<a href="/jabatan">
+										<a href="{{ route('jabatan.index') }}">
 											<span class="sub-item">Jabatan</span>
 										</a>
 									</li>
 
 									<li>
-										<a href="/keterangan">
+										<a href="{{ route('keterangan.index') }}">
 											<span class="sub-item">Keterangan</span>
 										</a>
 									</li>
@@ -118,7 +118,7 @@
 						</li>
 
 						<li class="nav-item">
-							<a href="/absen">
+							<a href="{{ route('absen.index') }}">
 								<i class="fas fa-book"></i>
 								<p>Absensi Karyawan</p>
 							</a>
@@ -132,22 +132,22 @@
 		
 	</div>
 	<!--   Core JS Files   -->
-	<script src="/assets/js/core/jquery.3.2.1.min.js"></script>
-	<script src="/assets/js/core/popper.min.js"></script>
-	<script src="/assets/js/core/bootstrap.min.js"></script>
+	<script src="{{ asset('/assets/js/core/jquery.3.2.1.min.js') }}"></script>
+	<script src="{{ asset('/assets/js/core/popper.min.js') }}"></script>
+	<script src="{{ asset('/assets/js/core/bootstrap.min.js') }}"></script>
 	<!-- jQuery UI -->
-	<script src="/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
-	<script src="/assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+	<script src="{{ asset('/assets/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js') }}"></script>
+	<script src="{{ asset('/assets/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js') }}"></script>
 	<!-- Bootstrap Toggle -->
-	<script src="/assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js"></script>
+	<script src="{{ asset('/assets/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js') }}"></script>
 	<!-- jQuery Scrollbar -->
-	<script src="/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+	<script src="{{ asset('/assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js') }}"></script>
 	<!-- Datatables -->
-	<script src="/assets/js/plugin/datatables/datatables.min.js"></script>
+	<script src="{{ asset('/assets/js/plugin/datatables/datatables.min.js') }}"></script>
 	<!-- Azzara JS -->
-	<script src="/assets/js/ready.min.js"></script>
+	<script src="{{ asset('/assets/js/ready.min.js') }}"></script>
 	<!-- Azzara DEMO methods, don't include it in your project! -->
-	<script src="/assets/js/setting-demo.js"></script>
+	<script src="{{ asset('/assets/js/setting-demo.js') }}"></script>
 	<script >
 		$(document).ready(function() {
 			$('#add-row').DataTable({

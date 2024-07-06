@@ -98,7 +98,7 @@
 														<span aria-hidden="true">&times;</span>
 													</button>
 												</div>
-												<form method="POST" enctype="multipart/form-data" action="/jabatan/store">
+												<form method="POST" enctype="multipart/form-data" action="{{ route('jabatan.store') }}">
 												@csrf
 												<div class="modal-body">
 													<div class="form-group">
@@ -133,7 +133,7 @@
 														<span aria-hidden="true">&times;</span>
 													</button>
 												</div>
-												<form method="POST" enctype="multipart/form-data" action="/jabatan/{{ $d->id }}/update">
+												<form method="POST" enctype="multipart/form-data" action="{{ route('jabatan.update') }}">
 													@csrf
 												<div class="modal-body">
 													<div class="form-group">
@@ -170,7 +170,7 @@
 														<span aria-hidden="true">&times;</span>
 													</button>
 												</div>
-												<form method="GET" enctype="multipart/form-data" action="/jabatan/{{ $d->id }}/destroy">
+												<form method="GET" enctype="multipart/form-data" action="{{ route('jabatan.destroy') }}">
 													@csrf
 												<div class="modal-body">
 													<h4>Apakah Anda Ingin Menghapus Data Ini ?</h4>
