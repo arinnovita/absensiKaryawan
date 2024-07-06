@@ -16,9 +16,11 @@ class Absen extends Migration
         Schema::create('absen', function (Blueprint $table) {
             $table->id();
             $table->string('waktu_absen');
-            $table->integer('karyawan_id');
+            $table->unsignedBigInteger('karyawan_id');
             $table->string('keterangan')->nullable();
             $table->timestamps();
+
+            $table->foreign('karyawan_id')->references('id')->on('karyawan')->onDelete('cascade');
         });
     }
 
