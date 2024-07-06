@@ -18,7 +18,7 @@ use App\Http\Controllers\KeteranganController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 
 Route::get('/karyawan', [KaryawanController::class, 'index'])->name('karyawan.index');
 Route::post('/karyawan/store', [KaryawanController::class, 'store'])->name('karyawan.store');

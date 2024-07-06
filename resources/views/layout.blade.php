@@ -77,7 +77,7 @@
 				<div class="sidebar-content">
 					<ul class="nav">
 						<li class="nav-item">
-							<a href="/">
+							<a href="{{ route('dashboard') }}">
 								<i class="fas fa-home"></i>
 								<p>Dashboard</p>
 							</a>
