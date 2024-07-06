@@ -17,8 +17,8 @@
 										</div>
 										<div class="col col-stats ml-3 ml-sm-0">
 											<div class="numbers">
-												<p class="card-category">Jadwal</p>
-												<h4 class="card-title">{{ $jadwal->count() }}</h4>
+												<p class="card-category">Jabatan</p>
+												<h4 class="card-title">{{ $jabatan->count() }}</h4>
 											</div>
 										</div>
 									</div>
@@ -37,8 +37,8 @@
 										</div>
 										<div class="col col-stats ml-3 ml-sm-0">
 											<div class="numbers">
-												<p class="card-category">Mahasiswa</p>
-												<h4 class="card-title">{{ $mahasiswa->count() }}</h4>
+												<p class="card-category">Karyawan</p>
+												<h4 class="card-title">{{ $karyawan->count() }}</h4>
 											</div>
 										</div>
 									</div>
@@ -57,8 +57,8 @@
 										</div>
 										<div class="col col-stats ml-3 ml-sm-0">
 											<div class="numbers">
-												<p class="card-category">Matakuliah</p>
-												<h4 class="card-title">{{ $matakuliah->count() }}</h4>
+												<p class="card-category">Keterangan</p>
+												<h4 class="card-title">{{ $keterangan->count() }}</h4>
 											</div>
 										</div>
 									</div>
