@@ -8,6 +8,7 @@
 	
 	<!-- Fonts and icons -->
 	<script src="{{ asset('/assets/js/plugin/webfont/webfont.min.js') }}"></script>
+	<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 	<script>
 		WebFont.load({
 			google: {"families":["Open+Sans:300,400,600,700"]},
