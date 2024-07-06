@@ -79,7 +79,7 @@
 						<li class="nav-item">
 							<a href="{{ route('dashboard') }}">
 								<i class="fas fa-home"></i>
-								<p>Dashboard</p>
+								<p> Dashboard</p>
 							</a>
 						</li>
 						<li class="nav-section">
@@ -91,7 +91,7 @@
 						<li class="nav-item">
 							<a data-toggle="collapse" href="#base">
 								<i class="fas fa-layer-group"></i>
-								<p>Data Master</p>
+								<p> Data Master</p>
 								<span class="caret"></span>
 							</a>
 							<div class="collapse" id="base">
@@ -121,7 +121,7 @@
 						<li class="nav-item">
 							<a href="{{ route('absen.index') }}">
 								<i class="fas fa-book"></i>
-								<p>Absensi Karyawan</p>
+								<p> Absensi Karyawan</p>
 							</a>
 						</li>
 					</ul>
