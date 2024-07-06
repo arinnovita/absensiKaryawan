@@ -166,7 +166,7 @@
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<form method="POST" enctype="multipart/form-data" action="{{ route('karyawan.update') }}">
+			<form method="POST" enctype="multipart/form-data" action="{{ route('karyawan.update', ['id' => $d->id]) }}">
 				@csrf
 				<div class="modal-body">
 					<div class="form-group">
@@ -218,7 +218,7 @@
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<form method="GET" enctype="multipart/form-data" action="{{ route('karyawan.destroy') }}">
+			<form method="GET" enctype="multipart/form-data" action="{{ route('karyawan.destroy', ['id' => $d->id]) }}">
 				@csrf
 				<div class="modal-body">
 					<h4>Apakah Anda Ingin Menghapus Data Ini ?</h4>
