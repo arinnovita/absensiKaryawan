@@ -133,7 +133,7 @@
 														<span aria-hidden="true">&times;</span>
 													</button>
 												</div>
-												<form method="POST" enctype="multipart/form-data" action="{{ route('keterangan.update') }}">
+												<form method="POST" enctype="multipart/form-data" action="{{ route('keterangan.update/{{ $d->id }}') }}">
 													@csrf
 												<div class="modal-body">
 													<div class="form-group">
