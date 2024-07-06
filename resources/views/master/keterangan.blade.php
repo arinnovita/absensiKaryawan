@@ -170,7 +170,7 @@
 														<span aria-hidden="true">&times;</span>
 													</button>
 												</div>
-												<form method="GET" enctype="multipart/form-data" action="{{ route('keterangan.destroy') }}">
+												<form method="GET" enctype="multipart/form-data" action="{{ route('keterangan.destroy', ['id' => $d->id]) }}">
 													@csrf
 												<div class="modal-body">
 													<h4>Apakah Anda Ingin Menghapus Data Ini ?</h4>
