@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Absen extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class Absen extends Migration
      */
     public function up()
     {
-        Schema::create('absen', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('waktu_absen');
-            $table->string('karyawan')->nullable();
-            $table->string('keterangan')->nullable();
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('level');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class Absen extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('absen');
+        Schema::dropIfExists('users');
     }
 }

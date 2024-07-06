@@ -66,7 +66,7 @@
     											@foreach ($absen as $row)
 												<tr>
 													<td>{{ $no++ }}</td>
-													<td>{{ $row->nama_karyawan }}</td>
+													<td>{{ $row->karyawan }}</td>
 													<td>{{ $row->waktu_absen }}</td>
 													<td>{{ $row->keterangan }}</td>
 												</tr>
@@ -102,10 +102,10 @@
 												<div class="modal-body">
 													<div class="form-group">
 														<label>Nama Karyawan</label>
-														<select class="form-control" name="karyawan_id" required="">
+														<select class="form-control" name="karyawan" required="">
 															<option value="" hidden="">-- Pilih Karyawan --</option>
-															@foreach($karyawan as $c)
-																<option value="{{ $c->id }}">{{ $c->nama_karyawan }}</option>
+															@foreach($karyawan as $row)
+																<option value="{{ $row->nama_karyawan }}">{{ $row->nama_karyawan }}</option>
 															@endforeach
 														</select>
 													</div>
@@ -115,7 +115,7 @@
 														<select class="form-control" name="keterangan" required="">
 															<option value="" hidden="">-- Pilih Keterangan Absen --</option>
 															@foreach($keterangan as $row)
-																<option value="{{ $row->id }}">{{ $row->keterangan }}</option>
+																<option value="{{ $row->keterangan }}">{{ $row->keterangan }}</option>
 															@endforeach
 														</select>
 													</div>

@@ -14,8 +14,8 @@ class Absen extends Model
 
     protected $fillable = [
         'waktu_absen',
-        'mahasiswa_id',
-        'keterangan_id',
+        'karyawan',
+        'keterangan',
         'created_at',
         'updated_at',
     ];

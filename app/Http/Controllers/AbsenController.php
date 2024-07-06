@@ -12,9 +12,9 @@ class AbsenController extends Controller
 {
     public function index()
     {
-        $keterangan = Keterangan::All();
-        $karyawan = Karyawan::All();
-        $absen = Absen::select('absen.id','absen.karyawan_id','karyawan.nama_karyawan','absen.waktu_absen')->join('karyawan', 'karyawan.id', '=', 'absen.karyawan_id')->get();
+        $keterangan = Keterangan::orderBy('id', 'ASC')->get();
+        $karyawan = Karyawan::orderBy('id', 'ASC')->get();
+        $absen = Absen::orderBy('id', 'ASC')->get();
         return view('absen.absen', compact('absen','karyawan','keterangan'));
     }
 
