@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>Absensi Karyawan</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-	<link rel="icon" href="{{ asset('/assets/img/icon.ico') }}" type="image/x-icon"/>
-	
+	<link rel="icon" href="{{ asset('/assets/img/icon.ico') }}" type="image/x-icon" />
+
 	<!-- Fonts and icons -->
 	<script src="{{ asset('/assets/js/plugin/webfont/webfont.min.js') }}"></script>
 	<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 	<script>
 		WebFont.load({
-			google: {"families":["Open+Sans:300,400,600,700"]},
-			custom: {"families":["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands"], urls: ['/assets/css/fonts.css']},
+			google: {
+				"families": ["Open+Sans:300,400,600,700"]
+			},
+			custom: {
+				"families": ["Flaticon", "Font Awesome 5 Solid", "Font Awesome 5 Regular", "Font Awesome 5 Brands"],
+				urls: ['/assets/css/fonts.css']
+			},
 			active: function() {
 				sessionStorage.fonts = true;
 			}
@@ -25,6 +31,7 @@
 	<!-- CSS Just for demo purpose, don't include it in your project -->
 	<link rel="stylesheet" href="{{ asset('/assets/css/demo.css') }}">
 </head>
+
 <body>
 	<div class="wrapper">
 		<!--
@@ -33,9 +40,9 @@
 		<div class="main-header" data-background-color="purple">
 			<!-- Logo Header -->
 			<div class="logo-header">
-				
+
 				<a href="#" class="logo">
-					
+
 				</a>
 				<button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon">
@@ -53,7 +60,7 @@
 
 			<!-- Navbar Header -->
 			<nav class="navbar navbar-header navbar-expand-lg">
-				
+
 				<div class="container-fluid">
 					<div class="collapse" id="search-nav">
 						<form class="navbar-left navbar-form nav-search mr-md-3">
@@ -72,7 +79,7 @@
 			<!-- End Navbar -->
 		</div>
 
-<div class="sidebar">			
+		<div class="sidebar">
 			<div class="sidebar-wrapper scrollbar-inner">
 				<div class="sidebar-content">
 					<ul class="nav">
@@ -113,7 +120,7 @@
 											<span class="sub-item">Keterangan</span>
 										</a>
 									</li>
-									
+
 								</ul>
 							</div>
 						</li>
@@ -124,13 +131,22 @@
 								<p> Absensi Karyawan</p>
 							</a>
 						</li>
+						<li class="nav-item">
+							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+								@csrf
+							</form>
+							<a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+								<i class="fas fa-power-off"></i>
+								<p>Logout</p>
+							</a>
+						</li>
 					</ul>
 				</div>
 			</div>
 		</div>
 
 		@yield('content')
-		
+
 	</div>
 	<!--   Core JS Files   -->
 	<script src="{{ asset('/assets/js/core/jquery.3.2.1.min.js') }}"></script>
@@ -149,34 +165,34 @@
 	<script src="{{ asset('/assets/js/ready.min.js') }}"></script>
 	<!-- Azzara DEMO methods, don't include it in your project! -->
 	<script src="{{ asset('/assets/js/setting-demo.js') }}"></script>
-	<script >
+	<script>
 		$(document).ready(function() {
-			$('#add-row').DataTable({
-			});
+			$('#add-row').DataTable({});
 		});
 	</script>
 
 	<script>
-		$(document).ready(function(){
-    // membatasi jumlah inputan
-    var maxGroup = 10;
-    
-    //melakukan proses multiple input 
-    $(".addMore").click(function(){
-        if($('body').find('.fieldGroup').length < maxGroup){
-            var fieldHTML = '<div class="form-group fieldGroup">'+$(".fieldGroupCopy").html()+'</div>';
-            $('body').find('.fieldGroup:last').after(fieldHTML);
-        }else{
-            alert('Maximum '+maxGroup+' groups are allowed.');
-        }
-    });
-    
-    //remove fields group
-    $("body").on("click",".remove",function(){ 
-        $(this).parents(".fieldGroup").remove();
-    });
-});
+		$(document).ready(function() {
+			// membatasi jumlah inputan
+			var maxGroup = 10;
+
+			//melakukan proses multiple input 
+			$(".addMore").click(function() {
+				if ($('body').find('.fieldGroup').length < maxGroup) {
+					var fieldHTML = '<div class="form-group fieldGroup">' + $(".fieldGroupCopy").html() + '</div>';
+					$('body').find('.fieldGroup:last').after(fieldHTML);
+				} else {
+					alert('Maximum ' + maxGroup + ' groups are allowed.');
+				}
+			});
+
+			//remove fields group
+			$("body").on("click", ".remove", function() {
+				$(this).parents(".fieldGroup").remove();
+			});
+		});
 	</script>
-	
+
 </body>
+
 </html>

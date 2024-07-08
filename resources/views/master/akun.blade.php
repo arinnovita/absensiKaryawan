@@ -6,7 +6,7 @@
 	<div class="content">
 		<div class="page-inner">
 			<div class="page-header">
-				<h4 class="page-title">Data Karyawan</h4>
+				<h4 class="page-title">Data Akun</h4>
 				<ul class="breadcrumbs">
 					<li class="nav-home">
 						<a href="#">
@@ -23,7 +23,7 @@
 						<i class="flaticon-right-arrow"></i>
 					</li>
 					<li class="nav-item">
-						<a href="#">Karyawan</a>
+						<a href="#">Akun</a>
 					</li>
 				</ul>
 			</div>
@@ -42,8 +42,8 @@
 					<div class="card">
 						<div class="card-header">
 							<div class="d-flex align-items-center">
-								<h4 class="card-title">Data Karyawan</h4>
-								<button class="btn btn-primary btn-round ml-auto" data-toggle="modal" data-target="#modalAddKaryawan">
+								<h4 class="card-title">Data Akun</h4>
+								<button class="btn btn-primary btn-round ml-auto" data-toggle="modal" data-target="#modalAddAkun">
 									<i class="fa fa-plus"></i>
 									Tambah Data
 								</button>
@@ -56,10 +56,8 @@
 										<tr>
 											<th>No</th>
 											<th>Nama</th>
-											<th>Jabatan</th>
-											<th>No Telp</th>
 											<th>Email</th>
-											<th>Alamat</th>
+											<th>Role</th>
 											<th>Aksi</th>
 										</tr>
 									</thead>
@@ -69,14 +67,12 @@
 										@foreach ($karyawan as $row)
 										<tr>
 											<td>{{ $no++ }}</td>
-											<td>{{ $row->nama_karyawan }}</td>
-											<td>{{ $row->jabatan }}</td>
-											<td>{{ $row->no_tlp }}</td>
+											<td>{{ $row->nama }}</td>
 											<td>{{ $row->email }}</td>
-											<td>{{ $row->alamat }}</td>
+											<td>{{ $row->role }}</td>
 											<td>
-												<a href="#modalEditKaryawan{{ $row->id }}" data-toggle="modal" title="Edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
-												<a href="#modalHapusKaryawan{{ $row->id }}" data-toggle="modal" title="Hapus" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
+												<a href="#modalEditAkun{{ $row->id }}" data-toggle="modal" title="Edit" class="btn btn-xs btn-primary"><i class="fa fa-edit"></i></a>
+												<a href="#modalHapusAkun{{ $row->id }}" data-toggle="modal" title="Hapus" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i></a>
 											</td>
 										</tr>
 										@endforeach
@@ -91,13 +87,13 @@
 	</div>
 </div>
 
-<div class="modal fade" id="modalAddKaryawan" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="modalAddAkun" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header no-bd">
 				<h5 class="modal-title">
 					<span class="fw-light">
-						Karyawan</span>
+						Akun</span>
 					<span class="fw-mediumbold">
 						Baru
 					</span>
@@ -106,27 +102,17 @@
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<form method="POST" enctype="multipart/form-data" action="{{ route('karyawan.store') }}">
+			<form method="POST" enctype="multipart/form-data" action="{{ route('akun.store') }}">
 				@csrf
 				<div class="modal-body">
 					<div class="form-group">
-						<label>Nama Karyawan</label>
-						<input type="text" name="nama_karyawan" class="form-control" placeholder="Nama Karyawan ..." required="">
-					</div>
-
-					<div class="form-group">
-						<label>Jabatan</label>
-						<select class="form-control" name="jabatan" required="">
-						<option value="" hidden="">-- Pilih Jabatan --</option>
-							@foreach ($jabatan as $data)
-							<option value="{{ $data->jabatan }}">{{ $data->jabatan }}</option>
+						<label>Nama</label>
+                        <select class="form-control" name="nama" required=""></select>
+                        <option value="" hidden="">-- Masukan Nama --</option>
+							@foreach ($karyawan as $data)
+							<option value="{{ $data->nama_karyawan }}">{{ $data->nama_karyawan }}</option>
 							@endforeach
-						</select>
-					</div>
-
-					<div class="form-group">
-						<label>No Telpon</label>
-						<input type="text" name="no_tlp" class="form-control" placeholder="No Telpon ..." required="">
+						</select>						
 					</div>
 
 					<div class="form-group">
@@ -135,8 +121,18 @@
 					</div>
 
 					<div class="form-group">
-						<label>Alamat</label>
-						<textarea placeholder="Alamat ..." class="form-control" rows="5" name="alamat" style="white-space: pre-line;" required=""></textarea>
+						<label>Password</label>
+                        <input type="password" name="password" class="form-control" placeholder="Password" required="">
+					</div>
+
+                    <div class="form-group">
+						<label>Role</label>
+						<select class="form-select" name="role" required="">
+						<option value="" hidden="">-- Pilih Role --</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Karyawan">Karyawan</option>
+                            </select>
+                        <input type="role" name="role" class="form-control" placeholder="Password" required="">
 					</div>
 
 				</div>
@@ -149,9 +145,9 @@
 	</div>
 </div>
 
-@foreach ($karyawan as $d)
+@foreach ($users as $d)
 
-<div class="modal fade" id="modalEditKaryawan{{ $d->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="modalEditAkun{{ $d->id }}" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header no-bd">
@@ -159,24 +155,19 @@
 					<span class="fw-mediumbold">
 						Edit</span>
 					<span class="fw-light">
-						Karyawan
+						Akun
 					</span>
 				</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<form method="POST" enctype="multipart/form-data" action="{{ route('karyawan.update', ['id' => $d->id]) }}">
+			<form method="POST" enctype="multipart/form-data" action="{{ route('akun.update', ['id' => $d->id]) }}">
 				@csrf
 				<div class="modal-body">
 					<div class="form-group">
-						<label>Nama Karyawan</label>
-						<input type="text" value="{{ $d->nama_karyawan }}" name="nama_karyawan" class="form-control" placeholder="Nama Karyawan ..." required="">
-					</div>
-
-					<div class="form-group">
-						<label>No Telpon</label>
-						<input type="text" name="no_tlp" value="{{ $d->no_tlp }}" class="form-control" placeholder="No Telpon ..." required="">
+						<label>Nama</label>
+						<input type="text" value="{{ $d->nama_karyawan }}" name="nama" class="form-control" placeholder="Nama Karyawan ..." required="">
 					</div>
 
 					<div class="form-group">
@@ -185,10 +176,11 @@
 					</div>
 
 					<div class="form-group">
-						<label>Alamat</label>
-						<textarea placeholder="Alamat ..." class="form-control" rows="5" name="alamat" style="white-space: pre-line;" required="">{{ $d->alamat }}</textarea>
-					</div>
-
+					<label for="role{{ $user->id }}" class="form-label">Role</label>
+                            <select class="form-select" aria-label="Default select example" id="role{{ $user->id }}" name="role" required {{ $user->role == 'Super Admin' ? 'disabled' : '' }}>
+                                <option value="Admin" {{ $user->role == 'Admin' ? 'selected' : '' }}>Admin</option>
+                                <option value="User" {{ $user->role == 'User' ? 'selected' : '' }}>User</option>
+                            </select>
 				</div>
 				<div class="modal-footer no-bd">
 					<button type="submit" name="ubah" class="btn btn-primary"><i class="fa fa-save"></i> Simpan</button>
